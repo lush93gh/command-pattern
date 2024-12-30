@@ -19,10 +19,10 @@ class RemoteControl:
         do is instantiate and initialize the 
         On and Off dicts.
         """
-        self.on_commands: dict[Command] = {}
-        self.off_commands: dict[Command] = {}
+        self.on_commands = {}
+        self.off_commands = {}
 
-    def set_command(self, slot: str, on_command: Command, off_command: Command):
+    def set_command(self, slot: str, on_command, off_command):
         """
         1. The set_command() method takes a slot 
         position and an On and Off command to 

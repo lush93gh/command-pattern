@@ -13,6 +13,7 @@ class StereoOnWithCDCommand(Command):
         """
         self.stereo = stereo
         self.volume = volume
+        self.__name__ = "Stereo On With CD Command"
 
     def execute(self):
         """
@@ -23,3 +24,6 @@ class StereoOnWithCDCommand(Command):
         self.stereo.on()
         self.stereo.set_cd()
         self.stereo.set_volume(self.volume)
+
+    def __call__(self):
+        self.execute()

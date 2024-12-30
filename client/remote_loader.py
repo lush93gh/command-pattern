@@ -33,7 +33,7 @@ class RemoteLoader():
         remote_control.set_command(str(living_room_light), living_room_light.on, living_room_light.off)
         remote_control.set_command(str(kitchen_light), kitchen_light.on, kitchen_light.off)
         remote_control.set_command(str(ceiling_fan), ceiling_fan.high, ceiling_fan.off)
-        remote_control.set_command(str(stereo), stereo_on_with_cd.execute, stereo.off)
+        remote_control.set_command(str(stereo), stereo_on_with_cd, stereo.off)
 
         # Here’s where we use our __str__() method 
         # to print each remote slot and the command 

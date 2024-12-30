@@ -14,3 +14,7 @@ class Command(ABC):
         All we need is one method call execute().
         """
         pass
+
+    @abstractmethod
+    def __call__(self):
+        pass
