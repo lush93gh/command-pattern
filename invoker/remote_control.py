@@ -22,7 +22,7 @@ class RemoteControl:
         self.on_commands: dict[Command] = {}
         self.off_commands: dict[Command] = {}
 
-    def set_command(self, slot: str, on_command: Command, off_command):
+    def set_command(self, slot: str, on_command: Command, off_command: Command):
         """
         1. The set_command() method takes a slot 
         position and an On and Off command to 
