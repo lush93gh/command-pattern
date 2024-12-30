@@ -39,7 +39,7 @@ class RemoteControl:
         pressed, the hardware takes 
         care of calling the on_button_was_pushed().
         """
-        self.on_commands.get(slot, self.no_command).execute()
+        self.on_commands.get(slot, self.no_command)()
     
     def off_button_was_pushed(self, slot: str):
         """
@@ -47,7 +47,7 @@ class RemoteControl:
         pressed, the hardware takes 
         care of calling the off_button_was_pushed().
         """
-        self.off_commands.get(slot, self.no_command).execute()
+        self.off_commands.get(slot, self.no_command)()
 
     def __str__(self):
         """
@@ -56,6 +56,6 @@ class RemoteControl:
         when we test the remote control. 
         """
         string = "\n------ Remote Control -------\n"
-        for i, (on_command, off_command) in enumerate(zip(self.on_commands.values(), self.off_commands.values())):
-            string += f"[slot {i}] {on_command.__class__.__name__}   {off_command.__class__.__name__}\n"
+        for i, (on_command, off_command) in enumerate(zip(self.on_commands.items(), self.off_commands.items())):
+            string += f"[slot {i}] {on_command[0]} {on_command[1].__name__}   {off_command[0]} {off_command[1].__name__}\n"
         return string
