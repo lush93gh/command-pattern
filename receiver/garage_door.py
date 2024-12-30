@@ -1,17 +1,21 @@
 class GarageDoor:
+
+    def __init__(self, location):
+        self.location = location
+
     def up(self):
-        print("Garage door is up")
+        print(f"{self.location} garage door is up")
 
     def down(self):
-        print("Garage door is down")
+        print(f"{self.location} garage door is down")
 
     def stop(self):
-        print("Garage door is stopped")
+        print(f"{self.location} garage door is stopped")
 
     def light_on(self):
-        print("Garage light is on")
+        print(f"{self.location} garage light is on")
     
     def light_off(self):
-        print("Garage light is off")
+        print(f"{self.location} garage light is off")
 
     

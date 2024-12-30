@@ -1,4 +1,4 @@
 from command.command import Command
 
-class GarageDoorOpenCommand(Command):
+class GarageDoorUpCommand(Command):
     pass    

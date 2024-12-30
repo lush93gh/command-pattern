@@ -6,7 +6,7 @@ from invoker.simple_remote_control import SimpleRemoteControl
 from receiver.light import Light
 from receiver.garage_door import GarageDoor
 from command.light_on_command import LightOnCommand
-from command.garage_door_open_command import GarageDoorOpenCommand
+from command.garage_door_up_command import GarageDoorUpCommand
 
 class RemoteControlTest:
     """
@@ -27,13 +27,13 @@ class RemoteControlTest:
         # Simulate the button being pressed.
         remote.button_was_pressed()
 
-    def test_garage_door_open():
+    def test_garage_door_up():
         remote = SimpleRemoteControl()
         garage_door = GarageDoor()
-        garage_open = GarageDoorOpenCommand(garage_door)
+        garage_open = GarageDoorUpCommand(garage_door)
         remote.set_command(garage_open)
         remote.button_was_pressed() 
 
 if __name__ == "__main__":
     RemoteControlTest.test_light_on()
-    # RemoteControlTest.test_garage_door_open()
+    # RemoteControlTest.test_garage_door_up()
