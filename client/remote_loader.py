@@ -4,9 +4,12 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from invoker.remote_control import RemoteControl
+from invoker.remote_control_with_undo import RemoteControlWithUndo
 from receiver.light import Light
 from receiver.ceiling_fan import CeilingFan
 from receiver.stereo import Stereo
+from command.light_on_command import LightOnCommand
+from command.light_off_command import LightOffCommand
 from command.stereo_on_with_cd_command import StereoOnWithCDCommand
 
 class RemoteLoader():
@@ -52,7 +55,31 @@ class RemoteLoader():
         remote_control.off_button_was_pushed(str(ceiling_fan))
         remote_control.on_button_was_pushed(str(stereo))
         remote_control.off_button_was_pushed(str(stereo))
+    
+    def load_with_undo():
+            remote_control = RemoteControlWithUndo()
+
+            # Create a Light.
+            living_room_light = Light("Living Room")
+
+            # Light In and Off Commands with undo() enabled().
+            living_room_light_on = LightOnCommand(living_room_light)
+            living_room_light_off = LightOffCommand(living_room_light)
+
+            # Add the light Commands to the remote in slot.
+            remote_control.set_command(str(living_room_light), living_room_light_on, living_room_light_off)
+
+            # Turn the light on, then off, and then undo.
+            remote_control.on_button_was_pushed(str(living_room_light))
+            remote_control.off_button_was_pushed(str(living_room_light))
+            print(remote_control)
+            remote_control.undo_button_was_pushed()
+            # Turn the light off, back on, and undo.
+            remote_control.off_button_was_pushed(str(living_room_light))
+            remote_control.on_button_was_pushed(str(living_room_light))
+            print(remote_control)
+            remote_control.undo_button_was_pushed()
 
 if __name__ == "__main__":
-    RemoteLoader.load()
+    RemoteLoader.load_with_undo()
 

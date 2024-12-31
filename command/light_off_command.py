@@ -13,3 +13,12 @@ class LightOffCommand(Command):
     
     def execute(self):
         self.light.off()
+
+    def undo(self):
+        """
+        Turn the light back on.
+        """
+        self.light.on()
+    
+    def __call__(self):
+        self.execute()

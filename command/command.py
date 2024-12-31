@@ -16,5 +16,9 @@ class Command(ABC):
         pass
 
     @abstractmethod
+    def undo(self):
+        pass
+
+    @abstractmethod
     def __call__(self):
         pass

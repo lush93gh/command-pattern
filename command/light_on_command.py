@@ -19,9 +19,17 @@ class LightOnCommand(Command):
 
     def execute(self):
         """
-        The execute() method calls 
-        the on() method on the 
+        Calls the on() method on the 
         receiving object, which is 
         the light we are controlling.
         """
         self.light.on()
+
+    def undo(self):
+        """
+        Turn the light back off.
+        """
+        self.light.off()
+    
+    def __call__(self):
+        self.execute()
