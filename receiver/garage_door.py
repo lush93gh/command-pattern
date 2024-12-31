@@ -1,6 +1,6 @@
 class GarageDoor:
 
-    def __init__(self, location):
+    def __init__(self, location: str):
         self.location = location
 
     def up(self):

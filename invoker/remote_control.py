@@ -39,7 +39,7 @@ class RemoteControl:
         pressed, the hardware takes 
         care of calling the on_button_was_pushed().
         """
-        self.on_commands.get(slot, self.no_command)()
+        self.on_commands.get(slot, RemoteControl.no_command)()
     
     def off_button_was_pushed(self, slot: str):
         """
@@ -47,7 +47,7 @@ class RemoteControl:
         pressed, the hardware takes 
         care of calling the off_button_was_pushed().
         """
-        self.off_commands.get(slot, self.no_command)()
+        self.off_commands.get(slot, RemoteControl.no_command)()
 
     def __str__(self):
         """

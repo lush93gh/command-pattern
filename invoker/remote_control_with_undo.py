@@ -10,7 +10,7 @@ class RemoteControlWithUndo:
         # Stash the last command executed for the undo button.
         # Just like the other slots, undo starts off with a noCommand, 
         # so pressing undo before any other button won’t do anything at all
-        self.last_command = self.no_command
+        self.last_command = RemoteControlWithUndo.no_command
 
     def set_command(self, slot: str, on_command: Command, off_command: Command):
         self.on_commands[slot] = on_command
@@ -23,8 +23,8 @@ class RemoteControlWithUndo:
         it; then we save a reference to 
         it in the last_command instance variable.
         """
-        self.on_commands.get(slot, self.no_command).execute()
-        self.last_command = self.on_commands.get(slot, self.no_command)
+        self.on_commands.get(slot, RemoteControlWithUndo.no_command).execute()
+        self.last_command = self.on_commands.get(slot, RemoteControlWithUndo.no_command)
     
     def off_button_was_pushed(self, slot: str):
         """
@@ -33,8 +33,8 @@ class RemoteControlWithUndo:
         it; then we save a reference to 
         it in the last_command instance variable.
         """
-        self.off_commands.get(slot, self.no_command).execute()
-        self.last_command = self.off_commands.get(slot, self.no_command)
+        self.off_commands.get(slot, RemoteControlWithUndo.no_command).execute()
+        self.last_command = self.off_commands.get(slot, RemoteControlWithUndo.no_command)
 
     def undo_button_was_pushed(self):
         """

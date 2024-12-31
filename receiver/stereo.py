@@ -1,6 +1,6 @@
 class Stereo():
 
-    def __init__(self, location):
+    def __init__(self, location: str):
         self.location = location
         self.volume = 0
 
