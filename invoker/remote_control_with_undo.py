@@ -49,6 +49,6 @@ class RemoteControlWithUndo:
     def __str__(self):
         string = "\n------ Remote Control -------\n"
         for i, (on_command, off_command) in enumerate(zip(self.on_commands.values(), self.off_commands.values())):
-            string += f"[slot {i}] {on_command.__class__.__name__}   {off_command.__class__.__name__}\n"
-            string += f"[undo] {self.last_command.__class__.__name__}\n"
+            string += f"[slot {i}] {on_command}   {off_command}\n"
+        string += f"[undo] {self.last_command}\n"
         return string

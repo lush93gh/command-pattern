@@ -22,3 +22,6 @@ class LightOffCommand(Command):
     
     def __call__(self):
         self.execute()
+
+    def __str__(self):
+        return self.__class__.__name__
