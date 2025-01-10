@@ -1,14 +1,15 @@
 from command.command import Command
+from receiver.stereo import Stereo
 
-class StereoOffCommand(Command):
+class StereoOnCommand(Command):
 
-    def __init__(self, stereo):
+    def __init__(self, stereo: Stereo):
         self.stereo = stereo
 
-    def undo(self):
+    def execute(self):
         self.stereo.on()
 
-    def execute(self):
+    def undo(self):
         self.stereo.off()
 
     def __call__(self):

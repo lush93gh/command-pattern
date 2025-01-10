@@ -9,3 +9,6 @@ class NoCommand(Command):
 
     def __call__(self):
         pass
+
+    def __str__(self):
+        return self.__class__.__name__
